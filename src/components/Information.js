@@ -8,7 +8,7 @@ export default class Information extends React.Component {
         <p>Stephen Allard</p>
         <p>stephencallard@gmail.com</p>
         <p>(228) 342-5446</p>
-        <button className="editButton">
+        <button className="button">
           <img src={pencilIcon} className="icon" alt="pencil icon"></img>
           Edit
         </button>

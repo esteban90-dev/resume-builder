@@ -51,7 +51,7 @@ p {
   margin-right: 6px;
 }
 
-.editButton {
+.button {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -61,4 +61,15 @@ p {
   background-color: #00D9B2;
   color: white;
   font-weight: 700;
+}
+
+.information__label {
+  display: block;
+}
+
+.information__field {
+  width: 100%;
+  padding: 10px;
+  border: solid black 1px;
+  margin-bottom: 20px;
 }
