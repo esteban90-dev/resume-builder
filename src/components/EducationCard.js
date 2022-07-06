@@ -11,7 +11,7 @@ export default class EducationCard extends React.Component {
       study: '',
       start: '',
       end: '',
-      isSubmitted: true,
+      isSubmitted: false,
     }
 
     this.handleChange = this.handleChange.bind(this);
