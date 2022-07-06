@@ -18,7 +18,7 @@ export default class InformationForm extends React.Component {
           name="name"
           value={this.props.formData.name}
           onChange={this.props.handleChange}  
-          required="true">
+          required={true}>
         </input>
 
         <label htmlFor="email" className="information__label">Email:</label>
@@ -29,7 +29,7 @@ export default class InformationForm extends React.Component {
           name="email"
           value={this.props.formData.email}
           onChange={this.props.handleChange}
-          required="true"> 
+          required={true}> 
         </input>
 
         <label htmlFor="phone" className="information__label">Phone:</label>
@@ -40,7 +40,7 @@ export default class InformationForm extends React.Component {
           name="phone"
           value={this.props.formData.phone}
           onChange={this.props.handleChange}
-          required="true"> 
+          required={true}> 
         </input>
 
         <button
