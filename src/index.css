@@ -20,6 +20,11 @@ hr {
   border-left: none;
   border-right: none;
   border-bottom: none;
+  margin-bottom: 17px;
+}
+
+p {
+  margin: 0;
 }
 
 .header__title {
@@ -38,4 +43,22 @@ hr {
   margin-top: 0px;
   font-weight: 400;
   font-size: 24px;
+}
+
+.icon {
+  height: 15px;
+  width: 15px;
+  margin-right: 6px;
+}
+
+.editButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: auto;
+  padding: 5px 10px;
+  border: none;
+  background-color: #00D9B2;
+  color: white;
+  font-weight: 700;
 }
