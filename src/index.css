@@ -14,7 +14,7 @@ header {
 
 main {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 auto 60px auto;
 }
 
 hr {
@@ -65,11 +65,11 @@ p {
   cursor: pointer;
 }
 
-.information__label {
+.information__label, .education__label {
   display: block;
 }
 
-.information__field {
+.information__field, .education__field {
   width: 100%;
   padding: 10px;
   border: solid black 1px;

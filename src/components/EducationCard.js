@@ -1,5 +1,6 @@
 import React from 'react';
 import Education from './Education';
+import EducationForm from './EducationForm';
 
 export default class EducationCard extends React.Component {
   render() {
@@ -8,6 +9,7 @@ export default class EducationCard extends React.Component {
         <h2 className="education__title">Education</h2>
         <hr></hr>
         <Education />
+        <EducationForm />
       </section>
     );
   }
