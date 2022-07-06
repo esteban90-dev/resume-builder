@@ -5,6 +5,7 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
+  color: #333333;
 }
 
 header {
@@ -34,12 +35,12 @@ p {
   font-size: 36px;
 }
 
-.information {
+.information, .education {
   background-color: #F8F5F5;
   padding: 20px;
 }
 
-.information__title {
+.information__title, .education__title {
   margin-top: 0px;
   font-weight: 400;
   font-size: 24px;
