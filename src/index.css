@@ -11,8 +11,31 @@ header {
   padding: 30px;
 }
 
+main {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+hr {
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+}
+
 .header__title {
   margin: 0;
   text-align: center;
   letter-spacing: -0.08em;
+  font-size: 36px;
+}
+
+.information {
+  background-color: #F8F5F5;
+  padding: 20px;
+}
+
+.information__title {
+  margin-top: 0px;
+  font-weight: 400;
+  font-size: 24px;
 }
