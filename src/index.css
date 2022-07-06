@@ -61,6 +61,7 @@ p {
   background-color: #00D9B2;
   color: white;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .information__label {
