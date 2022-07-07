@@ -8,18 +8,18 @@ export default class Education extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="education__submission">
         <p>{this.props.formData.name}</p>
         <p>{this.props.formData.study}</p>
         <p>{this.props.formData.start} to {this.props.formData.end}</p>
         <button
           className="button"
-          onClick={this.props.handleEdit}
+          onClick={(event) => this.props.handleEdit(event, this.props.formData.id)}
         >
           <img src={pencilIcon} className="icon" alt="pencil icon"></img>
           Edit
         </button>
-      </>
+      </div>
     );
   }
 }

@@ -8,7 +8,8 @@ export default class EducationForm extends React.Component {
   render() {
     return (
       <form
-        onSubmit={this.props.handleSubmit}
+        className="education__form"
+        onSubmit={(event) => this.props.handleSubmit(event, this.props.formData.id)}
       >
         <label htmlFor="name" className="education__label">Name of Institution:</label>
         <input 
@@ -18,7 +19,7 @@ export default class EducationForm extends React.Component {
           name="name"
           required={true}
           value={this.props.formData.name}
-          onChange={this.props.handleChange}>
+          onChange={(event) => this.props.handleChange(event, this.props.formData.id)}>
         </input>
 
         <label htmlFor="study" className="education__label">Area of Study:</label>
@@ -29,7 +30,7 @@ export default class EducationForm extends React.Component {
           name="study"
           required={true}
           value={this.props.formData.study}
-          onChange={this.props.handleChange}> 
+          onChange={(event) => this.props.handleChange(event, this.props.formData.id)}> 
         </input>
 
         <label htmlFor="start" className="education__label">Start Date:</label>
@@ -40,7 +41,7 @@ export default class EducationForm extends React.Component {
           name="start"
           required={true}
           value={this.props.formData.start}
-          onChange={this.props.handleChange}>
+          onChange={(event) => this.props.handleChange(event, this.props.formData.id)}>
         </input>
 
         <label htmlFor="end" className="education__label">End Date:</label>
@@ -51,7 +52,7 @@ export default class EducationForm extends React.Component {
           name="end"
           required={true}
           value={this.props.formData.end}
-          onChange={this.props.handleChange}>
+          onChange={(event) => this.props.handleChange(event, this.props.formData.id)}>
         </input>
 
         <button
