@@ -55,12 +55,9 @@ export default class EducationForm extends React.Component {
           onChange={(event) => this.props.handleChange(event, this.props.formData.id)}>
         </input>
 
-        <button
-          type="submit"
-          className="button"
-        >
-          Submit
-        </button>     
+        <div className="button-container">
+          <button type="submit" className="button">Submit</button> 
+        </div>
       </form>
     );
   }

@@ -40,20 +40,18 @@ export default class InformationCard extends React.Component {
   }
 
   render() {
-    const {isSubmitted, ...formData} = this.state;
-
     return (
       <section className="information">
         <h2 className="information__title">General Information</h2>
         <hr></hr>
-        { isSubmitted ? 
+        { this.state.isSubmitted ? 
           <InformationDisplay
-            information={formData}
+            formData={this.state}
             handleEdit={this.handleEdit}
           />
           :
           <InformationForm
-            formData={formData}
+            formData={this.state}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
           />

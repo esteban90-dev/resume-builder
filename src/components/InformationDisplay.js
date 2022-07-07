@@ -9,16 +9,18 @@ export default class InformationDisplay extends React.Component {
   render() {
     return (
       <>
-        <p>{this.props.information.name}</p>
-        <p>{this.props.information.email}</p>
-        <p>{this.props.information.phone}</p>
-        <button
-          className="button"
-          onClick={this.props.handleEdit}
-        >
-          <img src={pencilIcon} className="icon" alt="pencil icon"></img>
-          Edit
-        </button>
+        <p>{this.props.formData.name}</p>
+        <p>{this.props.formData.email}</p>
+        <p>{this.props.formData.phone}</p>
+        <div className="button-container">
+          <button
+            className="button"
+            onClick={this.props.handleEdit}
+          >
+            <img src={pencilIcon} className="icon" alt="pencil icon"></img>
+            Edit
+          </button>
+        </div>
       </>
     );
   }

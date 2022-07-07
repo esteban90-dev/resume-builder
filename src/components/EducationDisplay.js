@@ -12,13 +12,15 @@ export default class EducationDisplay extends React.Component {
         <p>{this.props.formData.name}</p>
         <p>{this.props.formData.study}</p>
         <p>{this.props.formData.start} to {this.props.formData.end}</p>
-        <button
-          className="button"
-          onClick={(event) => this.props.handleEdit(event, this.props.formData.id)}
-        >
-          <img src={pencilIcon} className="icon" alt="pencil icon"></img>
-          Edit
-        </button>
+        <div className="button-container">
+          <button
+            className="button"
+            onClick={(event) => this.props.handleEdit(event, this.props.formData.id)}
+          >
+            <img src={pencilIcon} className="icon" alt="pencil icon"></img>
+            Edit
+          </button>
+        </div>
       </div>
     );
   }

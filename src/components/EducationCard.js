@@ -128,14 +128,12 @@ export default class EducationCard extends React.Component {
         <h2 className="education__title">Education</h2>
         <hr></hr>
         {educations}
-        <button
-          className="button"
-          onClick={this.handleNew}
-        >
-          <img src={plusIcon} className="icon" alt="add new icon"></img>
-          Add New Education
-        </button>
-        
+        <div className="button-container">
+          <button className="button" onClick={this.handleNew}>
+            <img src={plusIcon} className="icon" alt="add new icon"></img>
+            Add New Education
+          </button>
+        </div>
       </section>
     );
   }

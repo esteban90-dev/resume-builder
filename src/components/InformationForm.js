@@ -6,6 +6,7 @@ export default class InformationForm extends React.Component {
   }
 
   render() {
+    console.log(this.props.formData.isSubmitted);
     return (
       <form
         onSubmit={this.props.handleSubmit}
@@ -43,12 +44,12 @@ export default class InformationForm extends React.Component {
           required={true}> 
         </input>
 
-        <button
-          type="submit"
-          className="button"
-        >
-          Submit
-        </button>     
+        <div className="button-container">
+          { this.props.formData.isSubmitted &&
+            <button className="button">Cancel</button>
+          }
+          <button type="submit" className="button">Submit</button> 
+        </div>
       </form>
     );
   }
