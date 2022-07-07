@@ -7,21 +7,30 @@ export default class InformationCard extends React.Component {
     super(props);
 
     this.state = {
-      name: '',
-      email: '',
-      phone: '',
-      isSubmitted: false,
+      submitted: {
+        name: '',
+        email: '',
+        phone: '',
+      },
+      temporary: {
+        name: '',
+        email: '',
+        phone: '',
+      },
+      isInEditMode: true,
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   handleChange(event) {
-    this.setState(
-      {...this.state, [event.target.name]: event.target.value}
-    );
+    this.setState(prevState => {
+      prevState.temporary[event.target.name] = event.target.value;
+      return prevState;
+    });
   }
 
   handleSubmit(event) {
@@ -30,13 +39,28 @@ export default class InformationCard extends React.Component {
     const email = event.target.email.value;
     const phone = event.target.phone.value;
 
-    this.setState({name, email, phone, isSubmitted: true});
+    this.setState(prevState => {
+      prevState.submitted = {name, email, phone}
+      prevState.isInEditMode = false;
+      return prevState;
+    });
   }
 
   handleEdit(event) {
-    this.setState(
-      {...this.state, isSubmitted: false}
+    this.setState(prevState => {
+      prevState.temporary = {...prevState.submitted};
+      prevState.isInEditMode = true;
+      return prevState;
+    }
     );
+  }
+
+  handleCancel(event) {
+    this.setState(prevState => {
+      prevState.temporary = {...prevState.submitted};
+      prevState.isInEditMode = false;
+      return prevState;
+    });
   }
 
   render() {
@@ -44,16 +68,17 @@ export default class InformationCard extends React.Component {
       <section className="information">
         <h2 className="information__title">General Information</h2>
         <hr></hr>
-        { this.state.isSubmitted ? 
-          <InformationDisplay
-            formData={this.state}
-            handleEdit={this.handleEdit}
-          />
-          :
+        { this.state.isInEditMode ? 
           <InformationForm
-            formData={this.state}
+            information={this.state.temporary}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
+            handleCancel={this.handleCancel}
+          />
+          :
+          <InformationDisplay
+            information={this.state.submitted}
+            handleEdit={this.handleEdit}
           />
         }
         

@@ -6,18 +6,15 @@ export default class InformationForm extends React.Component {
   }
 
   render() {
-    console.log(this.props.formData.isSubmitted);
     return (
-      <form
-        onSubmit={this.props.handleSubmit}
-      >
+      <form onSubmit={this.props.handleSubmit}>
         <label htmlFor="name" className="information__label">Name:</label>
         <input 
           type="text"
           id="name"
           className="information__field"
           name="name"
-          value={this.props.formData.name}
+          value={this.props.information.name}
           onChange={this.props.handleChange}  
           required={true}>
         </input>
@@ -28,7 +25,7 @@ export default class InformationForm extends React.Component {
           id="email"
           className="information__field"
           name="email"
-          value={this.props.formData.email}
+          value={this.props.information.email}
           onChange={this.props.handleChange}
           required={true}> 
         </input>
@@ -39,15 +36,13 @@ export default class InformationForm extends React.Component {
           id="phone"
           className="information__field"
           name="phone"
-          value={this.props.formData.phone}
+          value={this.props.information.phone}
           onChange={this.props.handleChange}
           required={true}> 
         </input>
 
         <div className="button-container">
-          { this.props.formData.isSubmitted &&
-            <button className="button">Cancel</button>
-          }
+          <button type="button" className="button" onClick={this.props.handleCancel}>Cancel</button>
           <button type="submit" className="button">Submit</button> 
         </div>
       </form>
