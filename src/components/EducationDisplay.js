@@ -1,14 +1,14 @@
 import React from 'react';
 import pencilIcon from '../images/pencil-icon.svg';
 
-export default class Education extends React.Component {
+export default class EducationDisplay extends React.Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <div className="education__submission">
+      <div className="education__display">
         <p>{this.props.formData.name}</p>
         <p>{this.props.formData.study}</p>
         <p>{this.props.formData.start} to {this.props.formData.end}</p>

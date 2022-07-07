@@ -1,7 +1,7 @@
 import React from 'react';
 import pencilIcon from '../images/pencil-icon.svg';
 
-export default class Information extends React.Component {
+export default class InformationDisplay extends React.Component {
   constructor(props) {
     super(props);
   }

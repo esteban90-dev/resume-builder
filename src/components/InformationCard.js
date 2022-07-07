@@ -1,5 +1,5 @@
 import React from 'react';
-import Information from './Information';
+import InformationDisplay from './InformationDisplay';
 import InformationForm from './InformationForm';
 
 export default class InformationCard extends React.Component {
@@ -47,7 +47,7 @@ export default class InformationCard extends React.Component {
         <h2 className="information__title">General Information</h2>
         <hr></hr>
         { isSubmitted ? 
-          <Information
+          <InformationDisplay
             information={formData}
             handleEdit={this.handleEdit}
           />

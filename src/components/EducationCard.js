@@ -1,5 +1,5 @@
 import React from 'react';
-import Education from './Education';
+import EducationDisplay from './EducationDisplay';
 import EducationForm from './EducationForm';
 import plusIcon from '../images/plus-icon.svg';
 
@@ -99,11 +99,11 @@ export default class EducationCard extends React.Component {
 
   render() {
     const educations = this.state.educations.map(education => {
-      // if form already submitted, build an education component,
+      // if form already submitted, build an education display component,
       // otherwise build a form component
       if (education.isSubmitted) {
         return (
-          <Education
+          <EducationDisplay
             formData={education}
             handleEdit={this.handleEdit}
             key={education.id}
