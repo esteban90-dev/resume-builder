@@ -1,5 +1,6 @@
 import React from 'react';
 import pencilIcon from '../images/pencil-icon.svg';
+import removeIcon from '../images/remove-icon.svg';
 
 export default class EducationDisplay extends React.Component {
   constructor(props) {
@@ -19,6 +20,13 @@ export default class EducationDisplay extends React.Component {
           >
             <img src={pencilIcon} className="icon" alt="pencil icon"></img>
             Edit
+          </button>
+          <button
+            className="button"
+            onClick={(event) => this.props.handleRemove(event, this.props.id)}
+          >
+            <img src={removeIcon} className="icon" alt="remove icon"></img>
+            Remove
           </button>
         </div>
       </div>

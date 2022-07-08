@@ -8,24 +8,7 @@ export default class EducationCard extends React.Component {
     super(props);
 
     this.state = {
-      educations: [
-        {
-          id: '1',
-          temporary: {
-            name: '',
-            study: '',
-            start: '',
-            end: '',
-          },
-          submitted: {
-            name: '',
-            study: '',
-            start: '',
-            end: '',
-          },       
-          isInEditMode: true,
-        }
-      ]
+      educations: this.defaultEducation(),
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -33,6 +16,28 @@ export default class EducationCard extends React.Component {
     this.handleEdit = this.handleEdit.bind(this);
     this.handleNew = this.handleNew.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
+  }
+
+  defaultEducation() {
+    return [
+      {
+        id: '1',
+        temporary: {
+          name: '',
+          study: '',
+          start: '',
+          end: '',
+        },
+        submitted: {
+          name: '',
+          study: '',
+          start: '',
+          end: '',
+        },       
+        isInEditMode: false,
+      }
+    ];
   }
 
   handleChange(event, id) {
@@ -47,7 +52,8 @@ export default class EducationCard extends React.Component {
           return education;
         }
       });
-      return updatedEducations;
+      
+      return {educations: updatedEducations};
     });
   }
 
@@ -142,6 +148,24 @@ export default class EducationCard extends React.Component {
     });
   }
 
+  handleRemove(event, id) {
+    if (window.confirm('are you sure?')) {
+      this.setState(prevState => {
+        let updatedEducations = prevState.educations.filter( education => 
+          education.id !== id
+        );
+  
+        // if the last remaining education was removed, 
+        // add a default state object
+        if (updatedEducations.length === 0) {
+          updatedEducations = this.defaultEducation();
+        }
+  
+        return {educations: updatedEducations};
+      });
+    }
+  }
+
   render() {
     const educations = this.state.educations.map(education => {
       const isSubmitted = (education.submitted.name
@@ -170,6 +194,7 @@ export default class EducationCard extends React.Component {
             education={education}
             id={education.id}
             handleEdit={this.handleEdit}
+            handleRemove={this.handleRemove}
             key={education.id}
           />
         );
