@@ -11,11 +11,19 @@ export default class EducationCard extends React.Component {
       educations: [
         {
           id: '1',
-          name: '',
-          study: '',
-          start: '',
-          end: '',
-          isSubmitted: false,
+          temporary: {
+            name: '',
+            study: '',
+            start: '',
+            end: '',
+          },
+          submitted: {
+            name: '',
+            study: '',
+            start: '',
+            end: '',
+          },       
+          isInEditMode: true,
         }
       ]
     }
@@ -24,20 +32,22 @@ export default class EducationCard extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleNew = this.handleNew.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   handleChange(event, id) {
     this.setState(prevState => {
       const updatedEducations = prevState.educations.map( education => {
         if (education.id === id) {
-          return {...education, [event.target.name]: event.target.value}
+          const updated = {...education};
+          updated.temporary[event.target.name] = event.target.value;
+          return updated;
         }
         else {
           return education;
         }
       });
-
-      return {...prevState, educations: updatedEducations};
+      return updatedEducations;
     });
   }
 
@@ -51,7 +61,10 @@ export default class EducationCard extends React.Component {
     this.setState(prevState => {
       const updatedEducations = prevState.educations.map( education => {
         if (education.id === id) {
-          return {...education, name, study, start, end, isSubmitted: true}
+          const updated = {...education};
+          updated.submitted = {name, study, start, end};
+          updated.isInEditMode = false;
+          return updated;
         }
         else {
           return education;
@@ -66,7 +79,13 @@ export default class EducationCard extends React.Component {
     this.setState(prevState => {
       const updatedEducations = prevState.educations.map( education => {
         if (education.id === id) {
-          return {...education, isSubmitted: false}
+          // copy submitted info to temp
+          const updated = {...education};
+          updated.temporary = {...education.submitted};
+
+          // set edit mode true
+          updated.isInEditMode = true;
+          return updated;
         }
         else {
           return education;
@@ -86,36 +105,71 @@ export default class EducationCard extends React.Component {
       prevState.educations.push(
         {
           id: lastId + 1,
-          name: '',
-          study: '',
-          start: '',
-          end: '',
-          isSubmitted: false,
+          temporary: {
+            name: '',
+            study: '',
+            start: '',
+            end: '',
+          },
+          submitted: {
+            name: '',
+            study: '',
+            start: '',
+            end: '',
+          },       
+          isInEditMode: true,
         }
       );
       return prevState;
     });
   }
 
+  handleCancel(event, id) {
+    this.setState(prevState => {
+      const updatedEducations = prevState.educations.map( education => {
+        if (education.id === id) {
+          // set edit mode false
+          const updated = {...education};
+          updated.isInEditMode = false;
+          return updated;
+        }
+        else {
+          return education;
+        }
+      });
+
+      return {...prevState, educations: updatedEducations};
+    });
+  }
+
   render() {
     const educations = this.state.educations.map(education => {
-      // if form already submitted, build an education display component,
-      // otherwise build a form component
-      if (education.isSubmitted) {
+      const isSubmitted = (education.submitted.name
+        && education.submitted.study
+        && education.submitted.start
+        && education.submitted.end) ? true : false;
+
+      // if in Edit mode, display form component
+      if (education.isInEditMode) {
         return (
-          <EducationDisplay
-            formData={education}
-            handleEdit={this.handleEdit}
+          <EducationForm
+            education={education}
+            id={education.id}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            handleCancel={this.handleCancel}
             key={education.id}
           />
         );
       } 
-      else {
+      // otherwise display the education display component
+      // but only if there is actual submitted info
+      else if (isSubmitted) {
         return (
-          <EducationForm
-            formData={education}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
+          <EducationDisplay
+            education={education}
+            id={education.id}
+            handleEdit={this.handleEdit}
             key={education.id}
           />
         );
@@ -131,7 +185,7 @@ export default class EducationCard extends React.Component {
         <div className="button-container">
           <button className="button" onClick={this.handleNew}>
             <img src={plusIcon} className="icon" alt="add new icon"></img>
-            Add New Education
+            Add New
           </button>
         </div>
       </section>
