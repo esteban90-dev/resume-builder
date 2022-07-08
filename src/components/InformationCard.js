@@ -17,7 +17,7 @@ export default class InformationCard extends React.Component {
         email: '',
         phone: '',
       },
-      isInEditMode: true,
+      isInEditMode: false,
     }
 
     this.handleChange = this.handleChange.bind(this);
