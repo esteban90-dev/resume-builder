@@ -35,12 +35,12 @@ p {
   font-size: 36px;
 }
 
-.information, .education {
+.information, .education, .experience {
   background-color: #F8F5F5;
   padding: 20px;
 }
 
-.information__title, .education__title {
+.information__title, .education__title, .experience__title {
   margin-top: 0px;
   font-weight: 400;
   font-size: 24px;
@@ -66,18 +66,18 @@ p {
   cursor: pointer;
 }
 
-.information__label, .education__label {
+.information__label, .education__label, .experience__label {
   display: block;
 }
 
-.information__field, .education__field {
+.information__field, .education__field, .experience__field {
   width: 100%;
   padding: 10px;
   border: solid black 1px;
   margin-bottom: 20px;
 }
 
-.education__form, .education__display {
+.education__form, .education__display, .experience__form, .experience__display {
   margin-bottom: 30px;
 }
 
