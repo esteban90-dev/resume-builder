@@ -8,47 +8,42 @@ export default class ExperienceForm extends React.Component {
   render() {
     return (
       <form
-        className="experience__form"
         onSubmit={(event) => this.props.handleSubmit(event, this.props.id)}
       >
-        <label htmlFor="name" className="experience__label">Name of Company:</label>
+        <label htmlFor="name">Name of Company:</label>
         <input 
           type="text"
           id="name"
-          className="experience__field"
           name="name"
           required={true}
           value={this.props.experience.temporary.name}
           onChange={(event) => this.props.handleChange(event, this.props.id)}>
         </input>
 
-        <label htmlFor="role" className="experience__label">Role:</label>
+        <label htmlFor="role">Role:</label>
         <input
           type="text"
           id="role"
-          className="experience__field"
           name="role"
           required={true}
           value={this.props.experience.temporary.role}
           onChange={(event) => this.props.handleChange(event, this.props.id)}> 
         </input>
 
-        <label htmlFor="start" className="experience__label">Start Date:</label>
+        <label htmlFor="start">Start Date:</label>
         <input
           type="date"
           id="start"
-          className="experience__field"
           name="start"
           required={true}
           value={this.props.experience.temporary.start}
           onChange={(event) => this.props.handleChange(event, this.props.id)}>
         </input>
 
-        <label htmlFor="end" className="experience__label">End Date:</label>
+        <label htmlFor="end">End Date:</label>
         <input
           type="date"
           id="end"
-          className="experience__field"
           name="end"
           required={true}
           value={this.props.experience.temporary.end}

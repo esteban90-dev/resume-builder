@@ -65,8 +65,8 @@ export default class InformationCard extends React.Component {
 
   render() {
     return (
-      <section className="information">
-        <h2 className="information__title">General Information</h2>
+      <section className="card">
+        <h2 className="card__title">General Information</h2>
         <hr></hr>
         { this.state.isInEditMode ? 
           <InformationForm

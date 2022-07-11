@@ -9,7 +9,7 @@ export default class EducationDisplay extends React.Component {
 
   render() {
     return (
-      <div className="education__display">
+      <div className="display">
         <p>{this.props.education.submitted.name}</p>
         <p>{this.props.education.submitted.study}</p>
         <p>{this.props.education.submitted.start} to {this.props.education.submitted.end}</p>

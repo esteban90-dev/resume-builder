@@ -9,7 +9,7 @@ export default class ExperienceDisplay extends React.Component {
 
   render() {
     return (
-      <div className="experience__display">
+      <div className="display">
         <p>{this.props.experience.submitted.name}</p>
         <p>{this.props.experience.submitted.role}</p>
         <p>{this.props.experience.submitted.start} to {this.props.experience.submitted.end}</p>

@@ -203,8 +203,8 @@ export default class ExperienceCard extends React.Component {
 
 
     return (
-      <section className="experience">
-        <h2 className="experience__title">Experience</h2>
+      <section className="card">
+        <h2 className="card__title">Experience</h2>
         <hr></hr>
         {experiences}
         <div className="button-container">

@@ -203,8 +203,8 @@ export default class EducationCard extends React.Component {
 
 
     return (
-      <section className="education">
-        <h2 className="education__title">Education</h2>
+      <section className="card">
+        <h2 className="card__title">Education</h2>
         <hr></hr>
         {educations}
         <div className="button-container">

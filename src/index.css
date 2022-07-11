@@ -28,6 +28,21 @@ p {
   margin: 0;
 }
 
+form {
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: solid black 1px;
+  margin-bottom: 20px;
+}
+
 .header__title {
   margin: 0;
   text-align: center;
@@ -35,12 +50,12 @@ p {
   font-size: 36px;
 }
 
-.information, .education, .experience {
+.card {
   background-color: #F8F5F5;
   padding: 20px;
 }
 
-.information__title, .education__title, .experience__title {
+.card__title {
   margin-top: 0px;
   font-weight: 400;
   font-size: 24px;
@@ -66,18 +81,7 @@ p {
   cursor: pointer;
 }
 
-.information__label, .education__label, .experience__label {
-  display: block;
-}
-
-.information__field, .education__field, .experience__field {
-  width: 100%;
-  padding: 10px;
-  border: solid black 1px;
-  margin-bottom: 20px;
-}
-
-.education__form, .education__display, .experience__form, .experience__display {
+.display {
   margin-bottom: 30px;
 }
 
